@@ -5,6 +5,7 @@
   "main": "app.js",
   "directories": {},
   "scripts": {
+    "refresh": "./scripts/refresh.sh",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint --quiet --ext .js --ext .jsx .",
