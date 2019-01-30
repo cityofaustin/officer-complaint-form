@@ -1,0 +1,47 @@
+language: node_js
+node_js:
+  - "10"
+dist: trusty
+
+# We only deploy for staging and production.
+if: (branch IN (master, production) AND type = push) OR (type = pull_request)
+
+# We require sudo
+sudo: required
+
+# We only care for curl and jq (aws output parsing)
+addons:
+  apt:
+    packages:
+      - jq
+      - curl
+
+# We are going to install AWS Cli, Heroku Cli and source our helper scripts
+before_install:
+    - source ./.travis/aws-helper.sh
+    - sudo pip install awscli
+
+# Jobs
+jobs:
+  include:
+  # - stage: Running Tests
+  #   script:
+  #   - echo "Deployment Details ( TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$TRAVIS_PULL_REQUEST,
+  #     TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH, MESSAGE=$TRAVIS_COMMIT_MESSAGE,
+  #     TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG, TRAVIS_PULL_REQUEST_SLUG=$TRAVIS_PULL_REQUEST_SLUG,
+  #     TRAVIS_PULL_REQUEST_SHA=$TRAVIS_PULL_REQUEST_SHA, TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR,
+  #     TRAVIS_BUILD_ID=$TRAVIS_BUILD_ID, TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER,
+  #     TRAVIS_COMMIT=$TRAVIS_COMMIT, TRAVIS_COMMIT_RANGE=$TRAVIS_COMMIT_RANGE, TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE,
+  #     TRAVIS_JOB_ID=$TRAVIS_JOB_ID, TRAVIS_JOB_NUMBER=$TRAVIS_JOB_NUMBER, TRAVIS_TAG=$TRAVIS_TAG )"
+  #   - echo "Testing AWS CLI is installed"
+  #   - aws --version
+  #   - echo "Testing AWS has access to the buckets list"
+  #   - aws s3api list-buckets --query "Buckets[].Name"
+  - stage: Build Loop
+    script:
+    - forms_download_repos "dependencies"
+    - forms_build_dependencies
+    - forms_build
+  - stage: Post-release functions
+    script:
+    - forms_postrelease
