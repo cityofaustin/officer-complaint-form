@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -o errexit
+#set -o errexit
 
 #
 # Colors
@@ -171,6 +171,7 @@ function forms_search_replace_file {
 	REPLACESTR=$2
 	FILE=$3
   echo "Replacing, current working dir: ${PWD}";
+  echo "sed -i '' -e 's|${SEARCHSTR}|${REPLACESTR}|g' $FILE;"
 	sed -i '' -e "s|${SEARCHSTR}|${REPLACESTR}|g" $FILE;
 }
 
