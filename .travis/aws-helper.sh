@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 
-#set -o errexit
-TRAVIS_BRANCH="master"
-TRAVIS_PULL_REQUEST="999"
-TRAVIS_PULL_REQUEST_BRANCH="sg-ocf-travispipelinewithprs"
-TRAVIS_BUILD_DIR=$PWD
-API_URL_PRODUCTION="https://gwpp3jl3e9.execute-api.us-east-1.amazonaws.com/production"
-API_URL_STAGING="https://6jm8rnjkxf.execute-api.us-east-1.amazonaws.com/staging"
-FORM_DEPLOYMENT_URI="police-oversight/complaint"
-AWS_BUCKET_NAME_PRODUCTION=""
-AWS_BUCKET_NAME_STAGING="police-monitor-website-staging"
-AWS_BUCKET_NAME_PR="police-monitor-website-pr"
+set -o errexit
 
 #
 # Colors
