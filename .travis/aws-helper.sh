@@ -170,6 +170,7 @@ function forms_search_replace_file {
 	SEARCHSTR=$1
 	REPLACESTR=$2
 	FILE=$3
+  echo "Replacing, current working dir: ${PWD}";
 	sed -i '' -e "s|${SEARCHSTR}|${REPLACESTR}|g" $FILE;
 }
 
