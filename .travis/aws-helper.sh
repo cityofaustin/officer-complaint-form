@@ -325,13 +325,6 @@ function forms_download_repos {
     REPO_SLUG=$(forms_get_slug $REPO_URL);
 
     forms_clone_repo $REPO_URL;
-    {
-      rm -rf ../$REPO_SLUG;
-    } || {
-      echo "${REPO_SLUG} does not exist in path '..' "
-    }
-
-    mv $REPO_SLUG ..;
   done
 }
 
@@ -345,7 +338,7 @@ function forms_build_dependencies {
 
     echo "Building: $DEPENDENCY_SLUG (API_URL: ${API_URL})";
 
-    forms_change_dir "${TRAVIS_BUILD_DIR}/../${DEPENDENCY_SLUG}";
+    forms_change_dir "${TRAVIS_BUILD_DIR}/${DEPENDENCY_SLUG}";
 
     forms_search_replace_file "http://localhost:5000" "${API_URL}" "webpack.config.js";
 
