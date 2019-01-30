@@ -317,6 +317,7 @@ function forms_download_repos {
 
     forms_clone_repo $REPO_URL;
   done
+  ls -lha;
 }
 
 function forms_build_dependencies {
