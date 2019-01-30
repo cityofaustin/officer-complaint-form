@@ -227,6 +227,7 @@ function forms_change_dir {
   echo "Changing directory to ${FORM_DIR}"
   cd $FORM_DIR
   echo "New PWD: ${PWD}";
+  ls -lha;
 }
 
 
