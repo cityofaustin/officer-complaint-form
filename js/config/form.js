@@ -13,18 +13,18 @@ import {
 
 const formConfig = {
   type: "complaint",
-  language: "en",
+  language: "es",
   title: 'File a complaint',
   subTitle: '',
   formId: '',
   urlPrefix: '/',
   trackingPrefix: 'form-',
-  transformForSubmit: (formConfig, form) => {
-    form.data.language = formConfig.language;
-    form.data.type = formConfig.type;
-    return JSON.stringify(form.data);
-  },
   submit: (formData, formConfig) => {
+    console.log("Appending type and language to formData ...");
+    // First we have to append type and language
+    formData.data.language = formConfig.language;
+    formData.data.type = formConfig.type;
+
     console.log("Submitting:");
     console.log(formData.data);
 
