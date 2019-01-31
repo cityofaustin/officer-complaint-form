@@ -65,16 +65,6 @@ fi;
 
 
 #
-# The repos file where we have all needed dependencies that need to be built
-#
-
-REPOS_JSON_FILE="${TRAVIS_BUILD_DIR}/.travis/repos.json"
-
-if [ "${REPOS_JSON_FILE}" == "" ]; then
-  helper_halt_deployment "Halting deployment, dependencies file not defined in variable REPOS_JSON_FILE."
-fi;
-
-#
 # We need AWS permissions
 #
 
@@ -251,18 +241,6 @@ function forms_sync_form_aws {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 #
 # Builds a repo
 #
@@ -279,15 +257,19 @@ function forms_build {
   yarn;
 
   echo "forms_build() Downloading git submodules"
-  # git submodule update --init --recursive;
   yarn postinstall;
 
-  # echo "Downloading dependencies..."
-  # for DEPENDENCY_ITEM in $(jq -c '.dependencies[]' $REPOS_JSON_FILE);
-  # do
-  #   DEPENDENCY_LINK=$(echo $DEPENDENCY_ITEM | jq -r '.link');
-  #   yarn link "${DEPENDENCY_LINK}";
-  # done;
+  #
+  # Since we do not link or build, we have to inject the API endpoint in
+  # the usfs FileUpload component.
+  #
+  USFS_NODEMODULE_PATH="node_modules/@cityofaustin/usfs-components"
+  forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/webpack.config.js";
+  forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/build/index.js";
+
+  #
+  # We can now proceed to build the rest of the form
+  #
 
   echo "forms_build() Running Yarn Build"
 
@@ -306,44 +288,6 @@ function forms_build {
   forms_reset_cwd;
 }
 
-
-
-
-
-function forms_download_repos {
-  REPO_DIR=$1
-  echo "Downloading: ${REPO_DIR}"
-  for REPO_ITEM in $(jq -c ".${REPO_DIR}[]" $REPOS_JSON_FILE);
-  do
-    REPO_URL=$(echo $REPO_ITEM | jq -r '.url');
-    REPO_SLUG=$(forms_get_slug $REPO_URL);
-
-    forms_clone_repo $REPO_URL;
-  done
-  ls -lha;
-}
-
-function forms_build_dependencies {
-  print_header "Building Dependencies"
-
-  for DEPENDENCY_ITEM in $(jq -c '.dependencies[]' $REPOS_JSON_FILE);
-  do
-    DEPENDENCY_URL=$(echo $DEPENDENCY_ITEM | jq -r '.url');
-    DEPENDENCY_SLUG=$(forms_get_slug $DEPENDENCY_URL);
-
-    echo "Building: $DEPENDENCY_SLUG (API_URL: ${API_URL})";
-
-    forms_change_dir "${TRAVIS_BUILD_DIR}/${DEPENDENCY_SLUG}";
-
-    forms_search_replace_file "http://localhost:5000" "${API_URL}" "webpack.config.js";
-
-    yarn;
-    yarn build;
-    yarn link;
-
-    forms_reset_cwd;
-  done
-}
 
 
 function forms_postrelease {
