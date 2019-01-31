@@ -279,14 +279,15 @@ function forms_build {
   yarn;
 
   echo "forms_build() Downloading git submodules"
-  git submodule update --init --recursive;
+  # git submodule update --init --recursive;
+  yarn postinstall;
 
-  echo "Downloading dependencies..."
-  for DEPENDENCY_ITEM in $(jq -c '.dependencies[]' $REPOS_JSON_FILE);
-  do
-    DEPENDENCY_LINK=$(echo $DEPENDENCY_ITEM | jq -r '.link');
-    yarn link "${DEPENDENCY_LINK}";
-  done;
+  # echo "Downloading dependencies..."
+  # for DEPENDENCY_ITEM in $(jq -c '.dependencies[]' $REPOS_JSON_FILE);
+  # do
+  #   DEPENDENCY_LINK=$(echo $DEPENDENCY_ITEM | jq -r '.link');
+  #   yarn link "${DEPENDENCY_LINK}";
+  # done;
 
   echo "forms_build() Running Yarn Build"
 
