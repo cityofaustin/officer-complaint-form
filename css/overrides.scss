@@ -212,34 +212,11 @@ legend.schemaform-label {
   text-align: left;
 }
 
-#root
-  > div
-  > div
-  > div
-  > div.progress-box.progress-box-schemaform
-  > div
-  > div
-  > form
-  > fieldset
-  > div
-  > div:nth-child(8)
-  > div
-  > div
-  > div:nth-child(3)
-  > div
-  > div
-  > p {
-  color: #757575;
-}
-
 .accordion-header.clearfix.schemaform-chapter-accordion-header > button {
   color: #0050d8;
   font-weight: 500;
 }
 
-/*
-miscellaneous overrides
- */
 .filepond--root {
   font-size: 1.6rem !important;
 }
@@ -272,6 +249,29 @@ miscellaneous overrides
   left: 270px;
   top: 15px;
   background-color: #ffffff;
+}
+
+/*
+hacky overrides
+ */
+#root
+  > div
+  > div
+  > div
+  > div.progress-box.progress-box-schemaform
+  > div
+  > div
+  > form
+  > fieldset
+  > div
+  > div:nth-child(8)
+  > div
+  > div
+  > div:nth-child(3)
+  > div
+  > div
+  > p {
+  color: #757575;
 }
 
 #root
