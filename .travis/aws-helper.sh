@@ -268,16 +268,7 @@ function forms_build {
   forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/build/index.js";
   forms_search_replace_file "process.env.API_URL" "'${API_URL}'" "${TRAVIS_BUILD_DIR}/webpack.prod.js";
 
-  # Now we patch the configuration files if this is a PR only
-  if [ "${IS_PR}" = "TRUE" ]; then
-    forms_search_replace_file "/police-oversight/complaint/" "/${FINAL_URL}/" "${TRAVIS_BUILD_DIR}/js/config/form.js";
-    forms_search_replace_file "/police-oversight/complaint/" "/${FINAL_URL}/" "${TRAVIS_BUILD_DIR}/js/routes.jsx";
-    forms_search_replace_file "/police-oversight/complaint/" "/${FINAL_URL}/" "${TRAVIS_BUILD_DIR}/webpack.common.js";
-    
-    cat "${TRAVIS_BUILD_DIR}/js/config/form.js";
-    cat "${TRAVIS_BUILD_DIR}/js/routes.jsx";
-    cat "${TRAVIS_BUILD_DIR}/webpack.common.js";
-  fi;
+  
 
   #
   # We can now proceed to build the rest of the form
