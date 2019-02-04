@@ -267,11 +267,13 @@ function forms_build {
   forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/webpack.config.js";
   forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/build/index.js";
 
+  forms_search_replace_file "process.env.API_URL" "'${API_URL}'" "${USFS_NODEMODULE_PATH}/webpack.prod.js";
+
   #
   # We can now proceed to build the rest of the form
   #
 
-  echo "forms_build() Running Yarn Build, API_URL: ${API_URL}"
+  echo "forms_build() Running Yarn Build"
 
   yarn build;
 
