@@ -14,7 +14,7 @@ const formConfig = {
   title: 'File a complaint',
   subTitle: '',
   formId: '',
-  urlPrefix: '/',
+  urlPrefix: '/police-oversight/complaint/',
   trackingPrefix: 'form-',
   transformForSubmit: '',
   submitUrl: '',
