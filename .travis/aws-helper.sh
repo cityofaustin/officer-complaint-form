@@ -249,7 +249,7 @@ function forms_build {
   forms_reset_cwd;
 
   FINAL_URL=$(resolve_form_url)
-
+  IS_PR=$(is_pull_request);
 
   echo "URI GENERATED: ${FINAL_URL}"
 
@@ -266,6 +266,12 @@ function forms_build {
   USFS_NODEMODULE_PATH="node_modules/@cityofaustin/usfs-components"
   forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/webpack.config.js";
   forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/build/index.js";
+  forms_search_replace_file "process.env.API_URL" "'${API_URL}'" "${TRAVIS_BUILD_DIR}/webpack.prod.js";
+
+  # Now we patch the configuration files if this is a PR only
+  if [ "${IS_PR}" = "TRUE" ]; then
+    forms_search_replace_file "/police-oversight/complaint/" "/${FINAL_URL}/" "${TRAVIS_BUILD_DIR}/webpack.common.js";
+  fi;
 
   #
   # We can now proceed to build the rest of the form
