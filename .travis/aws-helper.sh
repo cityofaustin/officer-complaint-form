@@ -271,7 +271,7 @@ function forms_build {
   # We can now proceed to build the rest of the form
   #
 
-  echo "forms_build() Running Yarn Build"
+  echo "forms_build() Running Yarn Build, API_URL: ${API_URL}"
 
   yarn build;
 
