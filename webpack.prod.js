@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const API_URL = process.env.API_URL || env.API_URL;
 
 module.exports = merge(require('./webpack.common.js'), {
   mode: 'production',
@@ -45,7 +46,7 @@ module.exports = merge(require('./webpack.common.js'), {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
-        API_URL: JSON.stringify(${process.env.API_URL})
+        API_URL: JSON.stringify(API_URL)
       },
     }),
     new BundleAnalyzerPlugin({
