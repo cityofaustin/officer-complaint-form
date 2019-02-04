@@ -271,6 +271,7 @@ function forms_build {
   # Now we patch the configuration files if this is a PR only
   if [ "${IS_PR}" = "TRUE" ]; then
     forms_search_replace_file "/police-oversight/complaint/" "/${FINAL_URL}/" "${TRAVIS_BUILD_DIR}/webpack.common.js";
+    cat "${TRAVIS_BUILD_DIR}/webpack.common.js";
   fi;
 
   #
