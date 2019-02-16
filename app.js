@@ -4,6 +4,7 @@ import { Router, useRouterHistory } from "react-router";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { createHistory } from "history";
+import "babel-polyfill"
 
 import "us-forms-system/lib/css/styles.css";
 import "./css/overrides.scss";
