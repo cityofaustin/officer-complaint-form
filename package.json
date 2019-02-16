@@ -59,6 +59,7 @@
     "filepond": "^3.5.0",
     "filepond-plugin-image-exif-orientation": "^1.0.3",
     "filepond-plugin-image-preview": "^3.1.4",
+    "filepond-polyfill": "^1.0.2",
     "foundation-sites": "^5.5.3",
     "prop-types": "^15.6.2",
     "react": "^15.6.2",
