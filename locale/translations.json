@@ -149,8 +149,8 @@
     "es": "Detalles del testigo"
   },
 
-  "Tell us about you (optional)": {
-    "es": "¿Qué nos puede decir sobre usted? (opcional)"
+  "Tell us about you": {
+    "es": "¿Qué nos puede decir sobre usted?"
   },
 
   "I am willing to be contacted by the Office of Police Oversight in two to four business days.": {
@@ -213,7 +213,7 @@
     "es": "No sé"
   },
 
-  "Add another": {
+  "Add Another": {
     "es": "Añadir otro"
   },
 
