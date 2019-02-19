@@ -552,6 +552,9 @@
     "es": "%Dom%,%Lun%,%Mar%,%Mie%,%Jue%,%Vie%,%Sab%"
   },
 
+  "optional": {
+    "es": "opcional"
+  },
   "Office of Police Oversight": {
     "es": "Oficina de Fiscalizacion de la Policia"
   }
