@@ -46,11 +46,8 @@
   "If you need language translation, you can bring a friend to translate for you or ask for a translator. Just tell us the language you prefer.": {
     "es": "Si necesita asistencia de traducción, puede pedirle a un amigo o solicitar un intérprete."
   },
-  "Office hours are Monday through Friday, 9 am to 5 pm.": {
-    "es": "Horario de oficina de lunes a viernes, de 9 am a 5 pm."
-  },
-  "Download the compliant form (PDF). Print and fill out the form, then mail it to:": {
-    "es": "Descargue el formulario de queja (PDF). Imprima y llene el formulario, luego envíelo por correo a:"
+  "Office hours are Monday through Friday, 8 am to 5 pm.": {
+    "es": "Horario de oficina de lunes a viernes, de 8 am a 5 pm."
   },
   
   "Download the complaint form (PDF). Print and fill out the form, then mail it to:": {
@@ -181,7 +178,7 @@
     "es": "Revise sus respuestas antes de enviar"
   },
   
-  "File a Complaint": {
+  "File a complaint": {
     "es": "Presente una queja"
   },
 
