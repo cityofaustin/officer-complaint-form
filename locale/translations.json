@@ -281,36 +281,36 @@
     "es": "Esta información nos ayuda a reconocer las tendencias en toda la ciudad para presentar recomendaciones a las políticas y entrenamientos."
   },
 
-  "Race": {
-    "es": "Raza"
+  "%Race%": {
+    "es": "%Raza%"
   },
 
-  "Gender": {
-    "es": "Sexo"
+  "%Gender%": {
+    "es": "%Sexo%"
   },
 
-  "Male": {
-    "es": "Hombre"
+  "%Male%": {
+    "es": "%Hombre%"
   },
 
-  "Female": {
-    "es": "Mujer"
+  "%Female%": {
+    "es": "%Mujer%"
   },
 
   "Badge number": {
     "es": "Número de credencial"
   },
   
-  "In uniform": {
-    "es": "Uniforme"
+  "%In uniform%": {
+    "es": "%Uniforme%"
   },
 
-  "In regular clothes": {
-    "es": "Ropa regular"
+  "%In regular clothes%": {
+    "es": "%Ropa regular%"
   },
 
-  "Physical description": {
-    "es": "Descripción"
+  "%Physical Description%": {
+    "es": "%Descripción%"
   },
 
   "We have received your complaint": {
@@ -341,60 +341,60 @@
     "es": "Si usted provee su información de contacto, un empleado de la Oficina de Fiscalización de la Policía se comunicará con usted en un periodo de dos a cuatro días laborales."
   },
 
-  "What happens next": {
-    "es": "Qué sucederá ahora"
+  "%What happens next%": {
+    "es": "%Qué sucederá ahora%"
   },
 
-  "Description": {
-    "es": "Descripción"
+  "%Description%": {
+    "es": "%Descripción%"
   },
 
   "- Select race -": {
-    "es": "- seleccionar raza -"
+    "es": "- Seleccionar raza -"
   },
 
   "%Enter a location here%": {
     "es": "%Introduzca una ubicación aquí%"
   },
 
-  "Update Page": {
+  "%Update Page%": {
     "es": "Actualizar"
   },
 
-  "Back": {
-    "es": "Atrás"
+  "%Back%": {
+    "es": "%Atrás%"
   },
 
-  "Submit": {
-    "es": "Enviar"
+  "%Submit%": {
+    "es": "%Enviar%"
   },
-  
-  "Sending": {
-    "es": "Enviando"
+
+  "%Sending%": {
+    "es": "%Enviando%"
   },
-  
-  "Continue": {
-    "es": "Continuar"
+
+  "%Continue%": {
+    "es": "%Continuar%"
   },
 
   ">Browse<": {
     "es": ">Seleccionar<"
   },
 
-  "Required": {
-    "es": "obligatoria"
+  "%(*Required)%": {
+    "es": "%(*Obligatoria)%"
   },
 
-  "required": {
-    "es": "obligatoria"
-  },
-  
-  "Yes": {
-    "es": "Sí"
+  "%required%": {
+    "es": "%obligatoria%"
   },
 
-  "No": {
-    "es": "No"
+  "%Yes%": {
+    "es": "%Sí%"
+  },
+
+  "%No%": {
+    "es": "%No%"
   },
 
   "%Uploading%": {
@@ -541,9 +541,10 @@
     "es": "%Dom%,%Lun%,%Mar%,%Mie%,%Jue%,%Vie%,%Sab%"
   },
 
-  "optional": {
-    "es": "opcional"
+  "%optional%": {
+    "es": "%opcional%"
   },
+  
   "Office of Police Oversight": {
     "es": "Oficina de Fiscalizacion de la Policia"
   }
