@@ -49,11 +49,11 @@
   "Office hours are Monday through Friday, 8 am to 5 pm.": {
     "es": "Horario de oficina de lunes a viernes, de 8 am a 5 pm."
   },
-  
+
   "Download the complaint form (PDF). Print and fill out the form, then mail it to:": {
     "es": "Descargue el formulario de queja (PDF). Imprima y llene el formulario, luego envíelo por correo a:"
   },
-  
+
   "Tell us what happened": {
     "es": "Díganos lo que sucedió"
   },
@@ -177,9 +177,9 @@
   "Review your answers before submitting": {
     "es": "Revise sus respuestas antes de enviar"
   },
-  
-  "File a complaint": {
-    "es": "Presente una queja"
+
+  "% File a Complaint %": {
+    "es": "% Presente Una Queja %"
   },
 
   "Patrol car or motorcycle": {
@@ -233,7 +233,7 @@
   "About us": {
     "es": "Información sobre nosotros"
   },
-  
+
   "Select an option": {
     "es": "Seleccione una opción"
   },
@@ -300,7 +300,7 @@
   "Badge number": {
     "es": "Número de credencial"
   },
-  
+
   "%In uniform%": {
     "es": "%Uniforme%"
   },
@@ -544,7 +544,7 @@
   "%optional%": {
     "es": "%opcional%"
   },
-  
+
   "Office of Police Oversight": {
     "es": "Oficina de Fiscalizacion de la Policia"
   }
