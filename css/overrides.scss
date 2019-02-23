@@ -460,3 +460,20 @@ hacky overrides
   > div.mapboxgl-ctrl.mapboxgl-ctrl-group {
   box-shadow: none;
 }
+
+
+
+.centered-form-schemaforms {
+  width: 100%;
+}
+
+.centered-form-two-thirds {
+  width: 75%;
+  margin: 0 auto 0 auto; // center horizontally
+}
+
+// make textareas full-width within container
+textarea {
+  width: 100%;
+  max-width: none;
+}
