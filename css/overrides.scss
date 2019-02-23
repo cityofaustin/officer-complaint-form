@@ -460,3 +460,28 @@ hacky overrides
   > div.mapboxgl-ctrl.mapboxgl-ctrl-group {
   box-shadow: none;
 }
+
+
+
+/* //////////  overrides for desktop styling  ////////// */
+
+@media only screen and (min-width: 520px) {
+
+  // for the long-term, we should remove this class from the div, and set to medium-12 instead of medium-8
+  .usa-width-two-thirds {
+    width: 100%;
+  }
+
+  // this is the container for all form elements
+  .progress-box-schemaform {
+  width: 75%; // set container width on desktop to 75%
+  margin: 0 auto 0 auto; // center horizontally
+  }
+
+  // make textareas full-width within container
+  textarea {
+  width: 100%;
+  max-width: none;
+  }
+
+}
