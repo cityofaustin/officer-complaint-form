@@ -38,8 +38,8 @@
   "Your contact information for us to follow up with you (interpreters available)": {
     "es": "Su información de contacto para poder comunicarnos con usted (hay traductores disponibles)"
   },
-  "Call the Office of Police Oversight at 512-972-2676. We’d be happy to speak with you.": {
-    "es": "Llame a la Oficina de Fiscalización de la Policía al 512-972-2676. Nos complacerá hablar con usted. "
+  "Call the Office of Police Oversight at (512) 972-2676. We’d be happy to speak with you.": {
+    "es": "Llame a la Oficina de Fiscalización de la Policía al (512) 972-2676. Nos complacerá hablar con usted. "
   },
   "You can complete the form in person at the Office of Police Oversight at 1520 Rutherford Lane, Austin, TX 78754. We are in Building 1, on the 2nd floor, Suite 211. Visitor parking is in front of the main entrance. You will need to check in with building security at the front desk.": {
     "es": "Puede presentar una queja en persona en la Oficina de Fiscalización de la Policía en 1520 Rutherford Lane, Austin, TX 78754. Estamos en el edificio 1, segundo piso, oficina 211. El estacionamiento para visitantes es frente a la entrada principal. Deberá presentarse con el personal de seguridad en la entrada."
@@ -64,6 +64,18 @@
     "es": "Descargue el formulario de queja (PDF). Imprima y llene el formulario, luego envíelo por correo a:"
   },
 
+  "%/files/OPO_complaint-form_print_English.pdf%": {
+    "es": "%/files/OPO_complaint-form_print_Spanish.pdf%"
+  },
+
+  "%Download the complaint form (PDF)%": {
+    "es": "%Descargue el formulario de queja (PDF)%"
+  },
+
+  "Print and fill out the form, then mail it to:": {
+    "es": "Imprima y llene el formulario, luego envíelo por correo a la Oficina de Fiscalización de la Policía a:"
+  },
+
   "Tell us what happened": {
     "es": "Díganos lo que sucedió"
   },
@@ -73,7 +85,7 @@
   },
 
   "Date and time, if known?": {
-    "es": "¿Qué día sucedió?"
+    "es": "Fecha y hora, si las sabe"
   },
 
   "Your name as it appears on the ticket": {
@@ -81,7 +93,11 @@
   },
 
   "I received a ticket during this interaction.": {
-    "es": "¿Recibió una multa?"
+    "es": "Recibí una multa durante esta interacción."
+  },
+
+  "Skip this if you prefer to remain anonymous.": {
+    "es": "Pase a la siguiente si desea permanecer anónimo."
   },
 
   "We'll need your name in order to find the ticket you’re referencing.": {
@@ -89,7 +105,7 @@
   },
 
   "Type in the location or drag the map to the location.": {
-    "es": "Escriba la ubicación o mueva el mapa a la ubicación correcta."
+    "es": "Escriba el lugar o arrastre el mapa hasta la ubicación."
   },
 
   "Share your photos or video": {
@@ -105,11 +121,15 @@
   },
 
   "Upload any evidence that you have (video files, audio files, photos, police report, hospital record, etc)": {
-    "es": "Envie cualquier evidencia que tenga (videos, audios, fotos, reportes de policía, registros de hospital, etc.)"
+    "es": "Cargue cualquier evidencia que tenga (archivos de video, audio, reportes de policía, reportes de hospital, etc.)"
   },
 
   "Drag & Drop your files or ": {
-    "es": "Arrastre los archivos aquí o "
+    "es": "Arrastre y suelte sus archivos o "
+  },
+
+  "Drag & drop your files or ": {
+    "es": "Arrastre y suelte sus archivos o "
   },
 
   "Tell us about the officer(s)": {
@@ -148,7 +168,7 @@
     "es": "¿Hay algo más que deberíamos saber sobre el testigo?"
   },
 
-  "Examples: Examples: were they injured, were they harassed, how were they involved, etc.": {
+  "Examples: were they injured, were they harassed, how were they involved, etc.": {
     "es": "Ejemplos: resultó herido, fue acosado, cómo estuvo involucrado, etc."
   },
 
@@ -181,7 +201,7 @@
   },
 
   "I would like an interpreter for all my future interactions.": {
-    "es": "¿Le gustaría que buscáramos un traductor para que esté presente en las futuras comunicaciones?"
+    "es": "Me gustaría tener un intérprete en las próximas comunicaciones."
   },
 
   "Review your answers before submitting": {
@@ -224,6 +244,10 @@
     "es": "Añadir otro"
   },
 
+  "Add another": {
+    "es": "Añadir otro"
+  },
+
   "In person": {
     "es": "En persona"
   },
@@ -238,10 +262,6 @@
 
   "By mail": {
     "es": "Por correo"
-  },
-
-  "About Us": {
-    "es": "Acerca de Nosotros"
   },
 
   "About us": {
@@ -329,6 +349,11 @@
     "es": "%Descripción%"
   },
 
+  "%Physical description%": {
+    "es": "%Descripción%"
+  },
+
+
   "We have received your complaint": {
     "es": "Hemos recibido su queja"
   },
@@ -362,6 +387,18 @@
     "es": "Si usted provee su información de contacto, un empleado de la Oficina de Fiscalización de la Policía se comunicará con usted en un periodo de dos a cuatro días laborales."
   },
 
+  "%Required information%": {
+    "es": "%Información requerida%"
+  },
+
+  "%Optional information%": {
+    "es": "%Información opcional%"
+  },
+
+  "%Officer(s) involved%": {
+    "es": "%Oficial(es) involucrado(s)%"
+  },
+
   "%What happens next%": {
     "es": "%Qué sucederá ahora%"
   },
@@ -382,6 +419,10 @@
     "es": "%Actualizar%"
   },
 
+  "%Update page%": {
+    "es": "%Actualizar%"
+  },
+
   "%Back%": {
     "es": "%Atrás%"
   },
@@ -399,7 +440,11 @@
   },
 
   ">Browse<": {
-    "es": ">Seleccionar<"
+    "es": ">explorar<"
+  },
+
+  ">browse<": {
+    "es": ">explorar<"
   },
 
   "%(*Required)%": {
@@ -419,31 +464,31 @@
   },
 
   "%Uploading%": {
-    "es": "%Enviando archivo%"
+    "es": "%Cargando%"
   },
 
   "%Upload complete%": {
-    "es": "%Envio completo%"
+    "es": "%Archivo cargado%"
   },
 
   "%Upload cancelled%": {
-    "es": "%Envio completo%"
+    "es": "%Archivo cancelado%"
   },
 
   "%Error during upload%": {
-    "es": "%error%"
+    "es": "%Error al cargar el archivo%"
   },
 
   "%tap to cancel%": {
-    "es": "%presione para cancelar%"
+    "es": "%Oprima para cancelar%"
   },
 
   "%tap to retry%": {
-    "es": "%presione para re-intentar%"
+    "es": "%Oprima para intentar otra vez%"
   },
 
   "%tap to undo%": {
-    "es": "%presione para borrar%"
+    "es": "%Oprima para deshacer%"
   },
 
   "File is too large": {
@@ -463,7 +508,7 @@
   },
 
   "%Remove%": {
-    "es": "%Remover%"
+    "es": "%Eliminar%"
   },
 
   "%Abort%": {
@@ -503,7 +548,7 @@
   },
 
   "%Location%": {
-    "es": "%¿Dónde sucedió?%"
+    "es": "%Ubicación%"
   },
 
   "%Online%": {
