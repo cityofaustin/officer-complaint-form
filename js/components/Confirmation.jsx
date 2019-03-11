@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import ProgressButton from "us-forms-system/lib/js/components/ProgressButton";
 import SegmentedProgressBar from "us-forms-system/lib/js/components/SegmentedProgressBar";
 
+import "../../css/Confirmation.scss";
+
 class Confirmation extends React.Component {
 
     constructor(props) {
@@ -190,16 +192,16 @@ class Confirmation extends React.Component {
 
         if(this.state.formSubmissionState === -1) {
             console.log("renderConfirmation() The email looks valid, so no need to render form");
-            confirmation_content = <div style={{marginTop: "4rem"}}>
-                You will receive an email with a copy of your complaint and a confirmation number at <b>{this.state.userEmail}</b>
+            confirmation_content = <div className="confirmation-sentacknowledgement">
+                <p>You will receive an email with a copy of your complaint and a confirmation number at <b>{this.state.userEmail}</b></p>
             </div>;
 
             this.clearLocalStorage();
         } else {
             let buttonContent = this.renderButton();
             confirmation_content = <div className="confirmation">
-                <p style={{fontSize: "1.4rem"}}>For a copy of your complaint and confirmation number, enter your email address below.</p>
-                <span style={{fontSize: "2rem"}}>Your email</span>
+                <p>For a copy of your complaint and confirmation number, enter your email address below.</p>
+                <span>Your email</span>
                 <input className="confimation-input" type="email" disabled = {(this.state.formSubmissionState > 0) ? "disabled" : ""} value={this.state.userEmail} onChange={(event) => this.setState({userEmail: event.target.value})} />
                 {buttonContent}
                 <div className="confirmation-errorbox" style={(this.state.errorMessage.length === 0) ? {display: "none"} : {display: "block"}}>{this.state.errorMessage} (<a href="javascript:;" onClick={() => this.hideErrorMessage()}>dismiss</a>)</div>
@@ -209,13 +211,13 @@ class Confirmation extends React.Component {
         return (
           <div className="schemaform-intro">
             <SegmentedProgressBar total={2} current={2}/>
-            <h2 style={{textAlign: "center", fontSize: "3rem", fontWeight: "Normal", width: "80%", marginLeft: "10%"}}>We have received your complaint.</h2>
-            <h3 style={{color: "#164ED2", textAlign: "center", fontSize: "1.8rem"}}>Your confirmation number: {confirmationCaseNumber}</h3>
+            <h2>We have received your complaint.</h2>
+            <h3>Your confirmation number: {confirmationCaseNumber}</h3>
             {confirmation_content}
-            <p style={{fontSize: "1.4rem"}}>You can email us at <a>policeoversight@austintexas.gov</a> or call us at <a>(512) 972-2676</a> with your confirmation number to find where your complaint is in this process.</p>
-            <p style={{fontSize: "1.4rem"}}>If you provided your contact information, a staff person from the Office of Police Oversight will contact you within two to four business days.</p>
-            <p style={{fontSize: "1.4rem"}}>Our job is to make sure your complaint is investigated fairly and thoroughly. Thank you for sharing your experience with us. This helps us better serve you and your community.</p>
-            <p style={{fontSize: "1.4rem"}}><a href="http://alpha.austin.gov/police-oversight/complaint-investigation-process">What happens next</a></p>
+            <p>You can email us at <a>policeoversight@austintexas.gov</a> or call us at <a>(512) 972-2676</a> with your confirmation number to find where your complaint is in this process.</p>
+            <p>If you provided your contact information, a staff person from the Office of Police Oversight will contact you within two to four business days.</p>
+            <p>Our job is to make sure your complaint is investigated fairly and thoroughly. Thank you for sharing your experience with us. This helps us better serve you and your community.</p>
+            <p><a href="http://alpha.austin.gov/police-oversight/complaint-investigation-process">What happens next</a></p>
           </div>
         );
   }
