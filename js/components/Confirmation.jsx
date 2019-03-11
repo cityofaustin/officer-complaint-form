@@ -41,8 +41,8 @@ class Confirmation extends React.Component {
 
 
     // Submits the form
-    resubmitForm() {
-        // console.log("resubmitForm() We are going to output your data here: ");
+    submitForm() {
+        // console.log("submitForm() We are going to output your data here: ");
         // console.log(this.state);
         let formData = this.state.formData;
 
@@ -54,11 +54,11 @@ class Confirmation extends React.Component {
             });
         } else {
             // Let's change the form data prior to submission ...
-            // console.log("resubmitForm() No email present, reassigning...");
+            // console.log("submitForm() No email present, reassigning...");
 
             // Try to reassign the email, or set up the value.
             try {
-                // console.log("resubmitForm() view:contactPreferences['yourEmail'] : " + this.state.userEmail);
+                // console.log("submitForm() view:contactPreferences['yourEmail'] : " + this.state.userEmail);
                 formData["view:contactPreferences"] = {
                     "yourEmail": this.state.userEmail
                 };
@@ -80,9 +80,9 @@ class Confirmation extends React.Component {
             });
 
             // Run the loading (three dots) animation...
-            this.runLoaderAnimation();
+            this.formLoading();
 
-            setTimeout(this.markDone, 1000, this);
+            setTimeout(this.formDone, 1000, this);
 
             // Make the XHR request with the formData and send to the submitUrl endpoint
             this.make_xhr_request(formData, this.state.submitUrl, this);
@@ -90,14 +90,14 @@ class Confirmation extends React.Component {
     }
 
     // Triggers the three dots animation by changing the state
-    runLoaderAnimation() {
+    formLoading() {
         this.setState({
             formSubmissionState: 1
         });
     }
 
     // Triggers the checkmark animation by changing the state
-    markDone(context) {
+    formDone(context) {
         context.setState({
             formSubmissionState: 2
         });
@@ -154,7 +154,7 @@ class Confirmation extends React.Component {
             request.send(JSON.stringify(formData));
             })
             .then(function (response) {
-                formContext.markDone(formContext);
+                formContext.formDone(formContext);
                 formContext.clearLocalStorage();
                 return response;
             })
@@ -172,7 +172,7 @@ class Confirmation extends React.Component {
     renderButton() {
         switch(this.state.formSubmissionState) {
             case 1:
-                return <button className="confirmation-button" onClick={() => this.resubmitForm()}>
+                return <button className="confirmation-button" onClick={() => this.submitForm()}>
                     <div className="confirmation-button--loading-btn"></div>
                 </button>;
             case 2:
@@ -182,7 +182,7 @@ class Confirmation extends React.Component {
                     </div>
                 </button>;
             default:
-                return <button className="confirmation-button" onClick={() => this.resubmitForm()}>Submit</button>;
+                return <button className="confirmation-button" onClick={() => this.submitForm()}>Submit</button>;
         }
     }
 
@@ -206,7 +206,7 @@ class Confirmation extends React.Component {
             confirmation_content = <div className="confirmation">
                 <p>For a copy of your complaint and confirmation number, enter your email address below.</p>
                 <span>Your email</span>
-                <input className="confimation-input" type="email" disabled = {(this.state.formSubmissionState > 0) ? "disabled" : ""} value={this.state.userEmail} onChange={(event) => this.setState({userEmail: event.target.value})} />
+                <input className="confimation-input" type="email" disabled={(this.state.formSubmissionState > 0) ? "disabled" : ""} value={this.state.userEmail} onChange={(event) => this.setState({userEmail: event.target.value})} />
                 {buttonContent}
                 <div className="confirmation-errorbox" style={(this.state.errorMessage.length === 0) ? {display: "none"} : {display: "block"}}>{this.state.errorMessage} (<a href="javascript:;" onClick={() => this.hideErrorMessage()}>dismiss</a>)</div>
             </div>;
