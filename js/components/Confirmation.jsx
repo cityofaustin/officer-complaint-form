@@ -190,13 +190,17 @@ class Confirmation extends React.Component {
         let confirmationCaseNumber = this.state.confirmationCaseNumber;
         let confirmation_content = null;
 
+        // If the email was already sent (-1), then no need for the form.
         if(this.state.formSubmissionState === -1) {
             console.log("renderConfirmation() The email looks valid, so no need to render form");
             confirmation_content = <div className="confirmation-sentacknowledgement">
                 <p>You will receive an email with a copy of your complaint and a confirmation number at <b>{this.state.userEmail}</b></p>
             </div>;
 
+            // Clear the stored data
             this.clearLocalStorage();
+
+        // Else, show the form.
         } else {
             let buttonContent = this.renderButton();
             confirmation_content = <div className="confirmation">
