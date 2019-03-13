@@ -35,8 +35,9 @@ div.confirmation > span {
   font-size: 2rem;
 }
 
-div.confirmation-sentacknowledgement {
+div.confirmation__sent-acknowledgement {
   margin-top: 4rem;
+  font-size: 1.4rem;
 }
 
 /*
@@ -48,7 +49,7 @@ div.confirmation-sentacknowledgement {
 }
 
 // Error Dialog Message
-.confirmation-errorbox {
+.confirmation__errorbox {
   margin-top: 1rem;
   color: red;
   padding: 1rem;
@@ -56,18 +57,18 @@ div.confirmation-sentacknowledgement {
 }
 
 // E-mail Input Field
-.confimation-input {
+.confimation__input {
   display: inline-block;
   width: calc(100% - 9rem);
   max-width: 100%;
 }
-.confimation-input:disabled {
+.confimation__input:disabled {
   color: #757575;
   background-color: white;
 }
 
 // Block's button, default size.
-.confirmation-button {
+.confirmation__button {
   display: inline-block;
   height: 4.2rem;
   max-height: 4.2rem;
@@ -80,19 +81,19 @@ div.confirmation-sentacknowledgement {
 }
 
 // Block's button, on success
-.confirmation-button__success {
+.confirmation__button--success {
   cursor: default;
   background-color: $confirmation-button-color;
 }
 
 // Block's button on success, hover
-.confirmation-button__success:hover {
+.confirmation__button--success:hover {
   cursor: default;
   background-color: $confirmation-button-color;
 }
 
 // Block's button, loading state
-.confirmation-button--loading-btn {
+.confirmation__button--loading-btn {
   position: relative;
   display: inline-block;
   width: $loader-dotsize;
@@ -100,45 +101,45 @@ div.confirmation-sentacknowledgement {
   border-radius: 50%;
   margin: -($loader-dotsize*2) ($loader-dotsize*2) ($loader-dotsize*2);
   animation-fill-mode: both;
-  animation: confirmation-button--loading-btn__animation 1s infinite ease-in-out;
+  animation: confirmation__button-loading-btn--animation 1s infinite ease-in-out;
   animation-delay: -0.16s;
   color: $loader-color;
 }
-.confirmation-button--loading-btn:before,
-.confirmation-button--loading-btn:after {
+.confirmation__button--loading-btn:before,
+.confirmation__button--loading-btn:after {
   content: '';
   position: absolute;
   width: $loader-dotsize;
   height: $loader-dotsize;
   top: 0;
-  animation: confirmation-button--loading-btn__animation 1s infinite ease-in-out;
+  animation: confirmation__button-loading-btn--animation 1s infinite ease-in-out;
   border-radius: 50%;
 }
-.confirmation-button--loading-btn:before {
+.confirmation__button--loading-btn:before {
   left: -($loader-dotsize*2);
   animation-delay: -0.32s;
 }
-.confirmation-button--loading-btn:after {
+.confirmation__button--loading-btn:after {
   left: ($loader-dotsize*2);
 }
 
 
 
 // Confirmation button, checkmark state
-.confirmation-button--checkmark-container {
+.confirmation__button-checkmark-container {
   left: -$checkmark-width;
   top: .8rem;
   position: relative;
   padding: 0 !important;
 }
-.confirmation-button--checkmark {}
-.confirmation-button--checkmark.draw:after {
+.confirmation__button-checkmark {}
+.confirmation__button-checkmark.draw:after {
   animation-duration: 800ms;
   animation-timing-function: ease;
-  animation-name: confirmation-button--checkmark__animation;
+  animation-name: confirmation__button-checkmark--animation;
   transform: scaleX(-1) rotate(135deg);
 }
-.confirmation-button--checkmark:after {
+.confirmation__button-checkmark:after {
   opacity: 1;
   height: $checkmark-height;
   width: $checkmark-width;
@@ -153,7 +154,7 @@ div.confirmation-sentacknowledgement {
 /*
   Confirmation page submit button, loading three dots animation
 */
-@keyframes confirmation-button--loading-btn__animation {
+@keyframes confirmation__button-loading-btn--animation {
   0%,
   80%,
   100% {
@@ -167,7 +168,7 @@ div.confirmation-sentacknowledgement {
 /*
   Confirmation page submit button, success checkmark animation
 */
-@keyframes confirmation-button--checkmark__animation {
+@keyframes confirmation__button-checkmark--animation {
   0% {
     height: 0;
     width: 0;

@@ -172,17 +172,17 @@ class Confirmation extends React.Component {
     renderButton() {
         switch(this.state.formSubmissionState) {
             case 1:
-                return <button className="confirmation-button" onClick={() => this.submitForm()}>
-                    <div className="confirmation-button--loading-btn"></div>
+                return <button className="confirmation__button" onClick={() => this.submitForm()}>
+                    <div className="confirmation__button--loading-btn"></div>
                 </button>;
             case 2:
-                return <button className="confirmation-button confirmation-button__success" onClick={null}>
-                    <div className="confirmation-button--checkmark-container">
-                        <div className="confirmation-button--checkmark draw">&nbsp;</div>
+                return <button className="confirmation__button confirmation__button--success" onClick={null}>
+                    <div className="confirmation__button-checkmark-container">
+                        <div className="confirmation__button-checkmark draw">&nbsp;</div>
                     </div>
                 </button>;
             default:
-                return <button className="confirmation-button" onClick={() => this.submitForm()}>Submit</button>;
+                return <button className="confirmation__button" onClick={() => this.submitForm()}>Submit</button>;
         }
     }
 
@@ -193,7 +193,7 @@ class Confirmation extends React.Component {
         // If the email was already sent (-1), then no need for the form.
         if(this.state.formSubmissionState === -1) {
             console.log("renderConfirmation() The email looks valid, so no need to render form");
-            confirmation_content = <div className="confirmation-sentacknowledgement">
+            confirmation_content = <div className="confirmation__sent-acknowledgement">
                 <p>You will receive an email with a copy of your complaint and a confirmation number at <b>{this.state.userEmail}</b></p>
             </div>;
 
@@ -206,9 +206,9 @@ class Confirmation extends React.Component {
             confirmation_content = <div className="confirmation">
                 <p>For a copy of your complaint and confirmation number, enter your email address below.</p>
                 <span>Your email</span>
-                <input className="confimation-input" type="email" disabled={(this.state.formSubmissionState > 0) ? "disabled" : ""} value={this.state.userEmail} onChange={(event) => this.setState({userEmail: event.target.value})} />
+                <input className="confimation__input" type="email" disabled={(this.state.formSubmissionState > 0) ? "disabled" : ""} value={this.state.userEmail} onChange={(event) => this.setState({userEmail: event.target.value})} />
                 {buttonContent}
-                <div className="confirmation-errorbox" style={(this.state.errorMessage.length === 0) ? {display: "none"} : {display: "block"}}>{this.state.errorMessage} (<a href="javascript:;" onClick={() => this.hideErrorMessage()}>dismiss</a>)</div>
+                <div className="confirmation__errorbox" style={(this.state.errorMessage.length === 0) ? {display: "none"} : {display: "block"}}>{this.state.errorMessage} (<a href="javascript:;" onClick={() => this.hideErrorMessage()}>dismiss</a>)</div>
             </div>;
         }
 
