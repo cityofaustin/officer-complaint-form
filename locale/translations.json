@@ -543,8 +543,8 @@
     "es": "%entendido%"
   },
 
-  "What happened": {
-    "es": "Qué sucedió"
+  "%What happened%": {
+    "es": "%Qué sucedió%"
   },
 
   "%Remove%": {
