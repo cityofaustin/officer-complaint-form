@@ -253,8 +253,8 @@
     "es": "No sé"
   },
 
-  "Add Another": {
-    "es": "Añadir otro"
+  "Add": {
+    "es": "Añadir"
   },
 
   "Add another": {
@@ -436,11 +436,11 @@
     "es": "%Introduzca una ubicación aquí%"
   },
 
-  "%Update Page%": {
+  "%Update%": {
     "es": "%Actualizar%"
   },
 
-  "%Update page%": {
+  "%Update%": {
     "es": "%Actualizar%"
   },
 
@@ -742,5 +742,13 @@
 
   "Office of Police Oversight": {
     "es": "Oficina de Fiscalizacion de la Policia"
-  }
+  },
+
+  "officer": {
+    "es": "oficial"
+  },
+
+  "witness": {
+    "es": "testigo"
+  },
 }
