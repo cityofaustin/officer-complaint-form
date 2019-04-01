@@ -248,8 +248,8 @@ function forms_build {
   print_header "Building Form"
   forms_reset_cwd;
 
-  FINAL_URL=$(resolve_form_url)
-
+  FINAL_URL=$(resolve_form_url);
+  IS_PR=$(is_pull_request);
 
   echo "URI GENERATED: ${FINAL_URL}"
 
