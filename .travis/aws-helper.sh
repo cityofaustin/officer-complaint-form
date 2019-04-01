@@ -281,6 +281,13 @@ function forms_build {
 
   cp $TRAVIS_BUILD_DIR/.travis/index.html $TRAVIS_BUILD_DIR/public/;
 
+  # If a PR, then generate deployment path and patch route accordingly.
+    if [[ "${IS_PR}" = "TRUE" ]]; then
+        ENGLISH_DEPLOYMENT_PATH=$(resolve_form_url);
+        forms_search_replace_file  "\/${FINAL_URL}" "\/${ENGLISH_DEPLOYMENT_PATH}" "./public/js/app.bundle.js";
+        FINAL_URL=$ENGLISH_DEPLOYMENT_PATH;
+    fi;
+
   forms_change_dir "public";
 
   forms_sync_form_aws $FINAL_URL;
@@ -319,7 +326,7 @@ function forms_translate {
     # If a PR, then generate deployment path and patch route accordingly.
     if [[ "${IS_PR}" = "TRUE" ]]; then
         ENGLISH_DEPLOYMENT_PATH=$(resolve_form_url);
-        NEW_DEPLOYMENT_PATH="${ENGLISH_DEPLOYMENT_PATH}-${LANGUAGE}";
+        NEW_DEPLOYMENT_PATH=$(echo -n "${ENGLISH_DEPLOYMENT_PATH}" | sed "s|police-complain|police-complain-${LANGUAGE}|g");
         forms_search_replace_file  "\/${DEPLOYMENT_PATH}" "\/${NEW_DEPLOYMENT_PATH}" "./${TRANSLATION_PATH}/js/app.bundle.js";
         DEPLOYMENT_PATH=$NEW_DEPLOYMENT_PATH;
     fi;
