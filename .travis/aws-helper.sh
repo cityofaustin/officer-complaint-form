@@ -188,7 +188,7 @@ function forms_reset_cwd {
 function resolve_form_url {
   IS_PR=$(is_pull_request);
   if [ "${IS_PR}" = "TRUE" ]; then
-    echo "officer-complaint-pr-${TRAVIS_PULL_REQUEST}";
+    echo "${PR_DEPLOYMENT_PATH}-${TRAVIS_PULL_REQUEST}";
   else
     echo "${FORM_DEPLOYMENT_URI}";
   fi;
@@ -314,6 +314,13 @@ function forms_translate {
     python3 "./.travis/translate.py" "./locale/translations.json" "./${TRANSLATION_PATH}/js/app.bundle.js" "${LANGUAGE}"
 
     DEPLOYMENT_PATH=$(jq -r ".deployment_path.${LANGUAGE}"  "./locale/routes.json")
+
+    # If a PR, then generate deployment path and patch route accordingly.
+    if [[ "${IS_PR}" = "TRUE" ]]; then
+        ENGLISH_DEPLOYMENT_PATH=$(resolve_form_url);
+        NEW_DEPLOYMENT_PATH="${ENGLISH_DEPLOYMENT_PATH}-${LANGUAGE}";
+        forms_search_replace_file  "\/${DEPLOYMENT_PATH}" "\/${NEW_DEPLOYMENT_PATH}" "./${TRANSLATION_PATH}/js/app.bundle.js";
+    fi;
 
     forms_change_dir $TRANSLATION_PATH;
 
