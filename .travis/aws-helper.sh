@@ -292,7 +292,8 @@ function forms_build {
 
 function forms_translate {
   print_header "Translating Form"
-  
+  IS_PR=$(is_pull_request);
+
   for LANGUAGE in $(jq -r ".supported_languages[]" "./locale/settings.json");
   do
     echo "Switching back to default directory";
@@ -320,6 +321,7 @@ function forms_translate {
         ENGLISH_DEPLOYMENT_PATH=$(resolve_form_url);
         NEW_DEPLOYMENT_PATH="${ENGLISH_DEPLOYMENT_PATH}-${LANGUAGE}";
         forms_search_replace_file  "\/${DEPLOYMENT_PATH}" "\/${NEW_DEPLOYMENT_PATH}" "./${TRANSLATION_PATH}/js/app.bundle.js";
+        DEPLOYMENT_PATH=$NEW_DEPLOYMENT_PATH;
     fi;
 
     forms_change_dir $TRANSLATION_PATH;
