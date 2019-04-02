@@ -263,9 +263,9 @@ function forms_build {
   # Since we do not link or build, we have to inject the API endpoint in
   # the usfs FileUpload component.
   #
-  USFS_NODEMODULE_PATH="node_modules/@cityofaustin/usfs-components"
-  forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/webpack.config.js";
-  forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}/build/index.js";
+  USFS_NODEMODULE_PATH="node_modules/us-forms-system"
+  forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}lib/js/widgets/FileUploadWidget.js";
+  forms_search_replace_file "http://localhost:5000" "${API_URL}" "${USFS_NODEMODULE_PATH}lib/js/widgets/FileUploadWidget.js.map";
 
   forms_search_replace_file "process.env.API_URL" "'${API_URL}'" "${TRAVIS_BUILD_DIR}/webpack.prod.js";
 
