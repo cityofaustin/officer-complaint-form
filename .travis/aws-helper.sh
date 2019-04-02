@@ -325,9 +325,13 @@ function forms_translate {
 
     # If a PR, then generate deployment path and patch route accordingly.
     if [[ "${IS_PR}" = "TRUE" ]]; then
+        # Resolve the regular url path for a PR
         ENGLISH_DEPLOYMENT_PATH=$(resolve_form_url);
+        # Then we patch it with the language code
         NEW_DEPLOYMENT_PATH=$(echo -n "${ENGLISH_DEPLOYMENT_PATH}" | sed "s|police-complain|police-complain-${LANGUAGE}|g");
+        # Then we patch the app.bundle.js file with the new route for the PR
         forms_search_replace_file  "\/${DEPLOYMENT_PATH}" "\/${NEW_DEPLOYMENT_PATH}" "./${TRANSLATION_PATH}/js/app.bundle.js";
+        # Finally we export the new DEPLOYMENT_PATH value so it knows where in S3 to deploy...
         DEPLOYMENT_PATH=$NEW_DEPLOYMENT_PATH;
     fi;
 
