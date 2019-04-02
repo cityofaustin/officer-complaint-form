@@ -26,5 +26,10 @@ jobs:
   include:
   - stage: Build Loop
     script:
+    # - forms_download_repos "dependencies"
+    # - forms_build_dependencies
     - forms_build
     - forms_translate
+  - stage: Post-release functions
+    script:
+    - forms_postrelease

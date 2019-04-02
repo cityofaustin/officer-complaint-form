@@ -188,7 +188,7 @@ function forms_reset_cwd {
 function resolve_form_url {
   IS_PR=$(is_pull_request);
   if [ "${IS_PR}" = "TRUE" ]; then
-    echo "${PR_DEPLOYMENT_PATH}-${TRAVIS_PULL_REQUEST}";
+    echo "officer-complaint-pr-${TRAVIS_PULL_REQUEST}";
   else
     echo "${FORM_DEPLOYMENT_URI}";
   fi;
@@ -248,8 +248,8 @@ function forms_build {
   print_header "Building Form"
   forms_reset_cwd;
 
-  FINAL_URL=$(resolve_form_url);
-  IS_PR=$(is_pull_request);
+  FINAL_URL=$(resolve_form_url)
+
 
   echo "URI GENERATED: ${FINAL_URL}"
 
@@ -281,13 +281,6 @@ function forms_build {
 
   cp $TRAVIS_BUILD_DIR/.travis/index.html $TRAVIS_BUILD_DIR/public/;
 
-  # If a PR, then generate deployment path and patch route accordingly.
-    if [[ "${IS_PR}" = "TRUE" ]]; then
-        ENGLISH_DEPLOYMENT_PATH=$(resolve_form_url);
-        forms_search_replace_file  "\/${FINAL_URL}" "\/${ENGLISH_DEPLOYMENT_PATH}" "./public/js/app.bundle.js";
-        FINAL_URL=$ENGLISH_DEPLOYMENT_PATH;
-    fi;
-
   forms_change_dir "public";
 
   forms_sync_form_aws $FINAL_URL;
@@ -299,8 +292,7 @@ function forms_build {
 
 function forms_translate {
   print_header "Translating Form"
-  IS_PR=$(is_pull_request);
-
+  
   for LANGUAGE in $(jq -r ".supported_languages[]" "./locale/settings.json");
   do
     echo "Switching back to default directory";
@@ -322,18 +314,6 @@ function forms_translate {
     python3 "./.travis/translate.py" "./locale/translations.json" "./${TRANSLATION_PATH}/js/app.bundle.js" "${LANGUAGE}"
 
     DEPLOYMENT_PATH=$(jq -r ".deployment_path.${LANGUAGE}"  "./locale/routes.json")
-
-    # If a PR, then generate deployment path and patch route accordingly.
-    if [[ "${IS_PR}" = "TRUE" ]]; then
-        # Resolve the regular url path for a PR
-        ENGLISH_DEPLOYMENT_PATH=$(resolve_form_url);
-        # Then we patch it with the language code
-        NEW_DEPLOYMENT_PATH=$(echo -n "${ENGLISH_DEPLOYMENT_PATH}" | sed "s|police-complain|police-complain-${LANGUAGE}|g");
-        # Then we patch the app.bundle.js file with the new route for the PR
-        forms_search_replace_file  "\/${DEPLOYMENT_PATH}" "\/${NEW_DEPLOYMENT_PATH}" "./${TRANSLATION_PATH}/js/app.bundle.js";
-        # Finally we export the new DEPLOYMENT_PATH value so it knows where in S3 to deploy...
-        DEPLOYMENT_PATH=$NEW_DEPLOYMENT_PATH;
-    fi;
 
     forms_change_dir $TRANSLATION_PATH;
 
