@@ -333,12 +333,15 @@ function forms_translate {
 
     # Patches the default slug with the translation's PR slug for routing...
     if [[ "${IS_PR}" = "TRUE" ]]; then
-        DEPLOYMENT_PATH=$(echo "${DEPLOYMENT_PATH}" | sed "s|complaint-pr|complaint-es-pr|g");
         echo -e "\n\nPatching routing for PR: \n";
-        echo "Default: ${FORM_DEPLOYMENT_URI}";
-        echo "PR's slug: ${DEPLOYMENT_PATH}";
-        forms_search_replace_file "${FORM_DEPLOYMENT_URI}" "${DEPLOYMENT_PATH}" "./js/app.bundle.js"
+        NEW_PR_PATH="${DEPLOYMENT_PATH}-pr-${TRAVIS_PULL_REQUEST}"
+        echo "Default: ${DEPLOYMENT_PATH}";
+        echo "PR's slug: ${NEW_PR_PATH}";
+        forms_search_replace_file "${DEPLOYMENT_PATH}" "${NEW_PR_PATH}" "./js/app.bundle.js"
         echo -e "\n\nPatching done!\n";
+        echo "Changing deployment path from '${DEPLOYMENT_PATH}' to '${NEW_PR_PATH}'";
+        DEPLOYMENT_PATH="${NEW_PR_PATH}";
+        echo "DEPLOYMENT_PATH: ${DEPLOYMENT_PATH}";
     fi;
 
     forms_sync_form_aws $DEPLOYMENT_PATH;
