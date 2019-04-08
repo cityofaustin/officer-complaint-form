@@ -302,7 +302,7 @@ function forms_build {
 
 function forms_translate {
   print_header "Translating Form"
-  IS_PR=$(is_pull_request)
+  IS_PR=$(is_pull_request);
 
   for LANGUAGE in $(jq -r ".supported_languages[]" "./locale/settings.json");
   do
