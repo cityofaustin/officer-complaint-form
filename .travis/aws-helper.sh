@@ -188,7 +188,7 @@ function forms_reset_cwd {
 function resolve_form_url {
   IS_PR=$(is_pull_request);
   if [ "${IS_PR}" = "TRUE" ]; then
-    echo "police-complain-pr-${TRAVIS_PULL_REQUEST}";
+    echo "${FORM_DEPLOYMENT_URI}-pr-${TRAVIS_PULL_REQUEST}";
   else
     echo "${FORM_DEPLOYMENT_URI}";
   fi;
@@ -334,13 +334,17 @@ function forms_translate {
     # Patches the default slug with the translation's PR slug for routing...
     if [[ "${IS_PR}" = "TRUE" ]]; then
         echo -e "\n\nPatching routing for PR: \n";
-        NEW_PR_PATH="${DEPLOYMENT_PATH}-pr-${TRAVIS_PULL_REQUEST}"
-        echo "Default: ${DEPLOYMENT_PATH}";
-        echo "PR's slug: ${NEW_PR_PATH}";
-        forms_search_replace_file "${DEPLOYMENT_PATH}" "${NEW_PR_PATH}" "./js/app.bundle.js"
+        ORIGINAL_PR_PATH=$(resolve_form_url);
+        TRANS_PR_PATH="${DEPLOYMENT_PATH}-pr-${TRAVIS_PULL_REQUEST}"
+
+        echo "Default: ${ORIGINAL_PR_PATH}";
+        echo "PR's slug: ${TRANS_PR_PATH}";
+
+        forms_search_replace_file "${ORIGINAL_PR_PATH}" "${TRANS_PR_PATH}" "./js/app.bundle.js"
+
         echo -e "\n\nPatching done!\n";
-        echo "Changing deployment path from '${DEPLOYMENT_PATH}' to '${NEW_PR_PATH}'";
-        DEPLOYMENT_PATH="${NEW_PR_PATH}";
+        echo "Changing deployment path from '${DEPLOYMENT_PATH}' to '${TRANS_PR_PATH}'";
+        DEPLOYMENT_PATH="${TRANS_PR_PATH}";
         echo "DEPLOYMENT_PATH: ${DEPLOYMENT_PATH}";
     fi;
 
