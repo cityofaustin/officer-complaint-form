@@ -18,3 +18,4 @@ public/stats
 .DS_Store
 npm-debug.log
 *.log
+stats.json
