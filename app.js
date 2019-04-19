@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createHistory } from 'history';
 
-import 'us-forms-system/lib/css/styles.css';
+import '@cityofaustin/us-forms-system/lib/css/styles.css';
 import './css/overrides.scss';
 
 import Modalbox from './js/components/Modalbox';
@@ -64,8 +64,7 @@ class App extends React.Component {
         (typeof formItemValue === 'object' && !this.hasFormData(formItemValue))
       ) {
         hasData = false;
-      }
-      else {
+      } else {
         hasData = true;
         break;
       }
@@ -84,8 +83,8 @@ class App extends React.Component {
   ) {
     // If the language is the same, then ignore the click...
     if (
-        (linkRedirect + '/') == '/police-complain/' &&
-        this.currentFormLanguage == 'opo_current_language_english'
+      linkRedirect + '/' == '/police-complain/' &&
+      this.currentFormLanguage == 'opo_current_language_english'
     ) {
       console.log('Click ignored, same language');
       return;
