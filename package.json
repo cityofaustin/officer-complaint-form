@@ -37,7 +37,7 @@
     "eslint-plugin-scanjs-rules": "^0.1.4",
     "eslint-stats": "^1.0.0",
     "mocha": "^5.2.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "4.11.0",
     "react-test-renderer": "^15.5.4",
     "sass-loader": "^7.1.0",
     "skin-deep": "^1.0.0",
